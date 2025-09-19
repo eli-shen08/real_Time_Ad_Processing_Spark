@@ -1,0 +1,40 @@
+# python spark-job.py → local mode (driver + executors on your laptop in one process).
+# client mode → driver runs on the machine where you ran spark-submit (e.g., Dataproc master),
+# executors run on cluster worker nodes.
+# cluster mode → driver itself runs inside the cluster (on some worker node),
+# not on your submission machine.
+
+
+
+
+{
+  "type": "record",
+  "name": "AdEvent",
+  "namespace": "com.example.ads",
+  "fields": [
+    {"name": "ad_id","type": "string"},
+    {"name": "timestamp","type": "string"},
+    {"name": "clicks","type": "int"},
+    {"name": "views","type": "int"},
+    {"name": "cost","type": "double"}
+  ]
+}
+
+
+spark-submit --master yarn \
+             --deploy-mode client \
+             --driver-memory 2g \
+             --num-executors 2 \
+             --executor-cores 2 \
+             --executor-memory 2g \
+             --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3,org.apache.spark:spark-avro_2.12:3.5.3 \
+             spark-job.py
+
+
+
+spark-submit --master yarn \
+             --deploy-mode client \
+             --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3,org.apache.spark:spark-avro_2.12:3.5.3 \
+             spark-job.py
+
+             --py-files /home/mondal_rahul1999/confluent_kafka-2.11.1-cp311-cp311-manylinux_2_28_x86_64.whl \
