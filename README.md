@@ -61,6 +61,10 @@ Only after installing these the spark job ran without problem in master node in 
 ** I have also maintained **Checkpoint** in **GCP Bucket** which holds the **states and offsets**.
 
 Finally the data is put inside a MongoDB collection.
+If you watch the video you might see duplicate records in mongodb that is because a record can fall under multiple time windows.
+For example:
+- An event at 12:00:20 belongs to the window [12:00:00, 12:01:00)
+- It also belongs to the window [12:00:30, 12:01:30)
 
 This is another small Real Time streaming project i have created to showcase my Spark and GCP knowledge mainly for my journey towards Data Engineering.
 
