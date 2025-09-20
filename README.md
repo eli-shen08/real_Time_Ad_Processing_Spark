@@ -68,6 +68,6 @@ For example:
 
 This is another small Real Time streaming project i have created to showcase my Spark and GCP knowledge mainly for my journey towards Data Engineering.
 
-If you want to see a full video of the code working you can see it on my linkedin post [HERE]()
+If you want to see a full video of the code working you can see it on my linkedin post [HERE](https://lnkd.in/p/dFKs8FW4)
 
 
